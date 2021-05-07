@@ -12,7 +12,8 @@ Database: [`Mongodb`](https://www.npmjs.com/package/mongodb) & [`Mongoose`](http
 Frontend: [`React`](https://www.npmjs.com/package/react)
 To be constructed
 
-Tech Involved: [`Passportjs`](https://www.npmjs.com/package/passport), [`JWT`](https://www.npmjs.com/package/jsonwebtoken), [`bcrpt`](https://www.npmjs.com/package/bcryptjs), [`validator`](https://www.npmjs.com/package/validator), [`cookie-parser`](https://www.npmjs.com/package/cookie-parser)
+Tech Involved: [`passportjs`](https://www.npmjs.com/package/passport), [`JWT`](https://www.npmjs.com/package/jsonwebtoken), [`bcrypt`](https://www.npmjs.com/package/bcryptjs), [`validator`](https://www.npmjs.com/package/validator), [`cookie-parser`](https://www.npmjs.com/package/cookie-parser)
+
 `passportjs` is the main tech used in this app
 - [`passport-google-oauth20`](https://www.npmjs.com/package/passport-google-oauth20) is used for authentication through google
 - [`passport-facebook`](https://www.npmjs.com/package/passport-facebook) is used for authentication thru facebook
