@@ -41,12 +41,12 @@ const userSchema = new Schema({
     },
     email: {
         type: String,
-        required: true,
-        validate(value) {
-            if (!validator.isEmail(value)) {
-                throw new Error("This is not a valid password")
-            }
-        }
+        // required: true,
+        // validate(value) {
+        //     if (!validator.isEmail(value)) {
+        //         throw new Error("This is not a valid password")
+        //     }
+        // }
     },
     phoneNum: Number,
     DOB: {

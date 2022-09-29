@@ -14,7 +14,7 @@ const cookieExtractor = (req) => {
 }
 
 opts.jwtFromRequest = cookieExtractor;
-opts.secretOrKey = keys.jwtKey;
+opts.secretOrKey = process.env.jwtKey;
 
 
 passport.use(new JwtStrategy(opts, (jwt_payload, done) => {

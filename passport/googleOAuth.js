@@ -6,9 +6,9 @@ const keys = require('../keys');
 const User = require('../models/users');
 
 passport.use(new GoogleStrategy({
-    clientID: keys.GOOGLEID,
-    clientSecret: keys.GOOGLESECRET,
-    callbackURL: keys.GOOGLECB
+    clientID: process.env.GOOGLEID,
+    clientSecret: process.env.GOOGLESECRET,
+    callbackURL: process.env.GOOGLECB
 },
     async (accessToken, refreshToken, profile, done) => {
         const fetchedUser = formatGoogleProfile(profile);

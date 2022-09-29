@@ -6,9 +6,9 @@ const keys = require('../keys');
 const User = require('../models/users');
 
 passport.use(new FacebookStrategy({
-    clientID: keys.FBAPPID,
-    clientSecret: keys.FBAPPSECRET,
-    callbackURL: keys.FBCB,
+    clientID: process.env.FBAPPID,
+    clientSecret: process.env.FBAPPSECRET,
+    callbackURL: process.env.FBCB,
     profileFields: ['email', 'id', 'displayName', 'name', 'birthday']
 },
     async (accessToken, refreshToken, profile, done) => {
@@ -26,7 +26,7 @@ passport.use(new FacebookStrategy({
     })
 )
 
-const formatFBProfile = (profile) => {
+const formatFBProfile = (profile) => {console.log(profile);
     const user = {
         inAppId: profile._json.id,
         name: profile._json.name,

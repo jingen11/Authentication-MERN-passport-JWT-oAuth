@@ -1,17 +1,18 @@
-const express = require('express');
-const cookieParser = require('cookie-parser');
+require("dotenv").config();
+const express = require("express");
+const cookieParser = require("cookie-parser");
 //const cookieSession = require('cookie-session'); **For session authentication
-const passport = require('passport');
+const passport = require("passport");
 
-const keys = require('./keys');
-const routes = require('./router');
+// const keys = require("./keys");
+const routes = require("./router");
 
-require('./db/mongoose');
-require('./passport/passport');
+require("./db/mongoose");
+require("./passport/passport");
 
 const app = express();
 
-const PORT = keys.PORT;
+const PORT = process.env.PORT;
 
 app.use(cookieParser());
 // app.use(
@@ -28,7 +29,6 @@ app.use(passport.initialize());
 //app.use(passport.session()); **For session authentication
 app.use(routes);
 
-
 app.listen(PORT, () => {
-    console.log(`Server is listening on port ${PORT}`)
-})
+  console.log(`Server is listening on port ${PORT}`);
+});

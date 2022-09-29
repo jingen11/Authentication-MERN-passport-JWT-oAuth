@@ -14,7 +14,7 @@ Router.get('/', (req, res) => {
 })
 
 Router.get('/success', passport.authenticate('jwt', { session: false }), (req, res) => {
-    res.send('testing')
+    res.send('Successfully authenticated');
 })
 
 Router.get('/auth/google',
@@ -24,9 +24,9 @@ Router.get('/auth/google',
 Router.get('/auth/google/callback',
     passport.authenticate("google", { scope: ['profile', 'email'], /* session: false*/ }),
     (req, res) => {
-        let token = jwt.sign({ data: req.user }, keys.jwtKey, { expiresIn: MONTHINSEC });
+        let token = jwt.sign({ data: req.user }, process.env.jwtKey, { expiresIn: MONTHINSEC });
         res.cookie('jwt', token);
-        res.redirect('/')
+        res.redirect('/success')
     }
 );
 
@@ -37,9 +37,9 @@ Router.get('/auth/facebook',
 Router.get('/auth/facebook/callback',
     passport.authenticate('facebook', {/* session: false*/ }),
     (req, res) => {
-        let token = jwt.sign({ data: req.user }, keys.jwtKey, { expiresIn: MONTHINSEC });
+        let token = jwt.sign({ data: req.user }, process.env.jwtKey, { expiresIn: MONTHINSEC });
         res.cookie('jwt', token);
-        res.redirect('/')
+        res.redirect('/success')
     }
 )
 
@@ -63,9 +63,9 @@ Router.get('/login', (req, res) => {
 Router.post('/login',
     passport.authenticate('local', { failureRedirect: "/login" }),
     (req, res) => {
-        let token = jwt.sign({ data: req.user }, keys.jwtKey, { expiresIn: MONTHINSEC });
+        let token = jwt.sign({ data: req.user }, process.env.jwtKey, { expiresIn: MONTHINSEC });
         res.cookie('jwt', token);
-        res.redirect('/')
+        res.redirect('/success')
     }
 )
 
