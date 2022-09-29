@@ -2,7 +2,7 @@ const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const bcrypt = require('bcryptjs');
 
-const keys = require('../keys');
+// const keys = require('../keys');
 const User = require('../models/users');
 
 passport.use(new GoogleStrategy({

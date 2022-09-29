@@ -3,7 +3,6 @@ const Router = require("express").Router();
 const jwt = require("jsonwebtoken");
 
 const User = require('../models/users');
-const keys = require('../keys');
 
 const MONTHINSEC = 30 * 24 * 60 * 60;
 
